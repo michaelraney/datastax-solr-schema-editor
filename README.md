@@ -1,4 +1,4 @@
-# DSE Solr Schema Editor
+#Solr Schema Editor
 
 The purpose of this project is to enhance the user experience of changing Solr schema documents, by improving the process of modifying Solr schema documents with automation, and adding a practical gui. 
 
