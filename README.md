@@ -22,6 +22,12 @@ The purpose of this project is to enhance the user experience of changing Solr s
 ./java -jar solr-schema-editor.war 
 ```
 
+## How do I use it
+* Refresh - pull existing schema from Solr Core.
+* POST - push modified schema to Solr Core.
+* Reload - relead solr core if changes are valid.
+
+## How do I improve it
 Additional options to the xml can be added by modifying the following js file, and quickly reviewing the js library documentation http://www.lexiconista.com/Xonomy/xonomy.pdf
 ```
 /src/resources/public/js/xonomy/solr/schemaHelper.js
