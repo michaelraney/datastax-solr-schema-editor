@@ -23,6 +23,19 @@ function buildSolrSchemaDocumentSpec(){
       };
 
 
+    var copyFieldSurrogateDefinition = { menu: [{caption: "Add @source=\"someFieldName\"", action: Xonomy.newAttribute, actionParameter: {name: "source", value: "someFieldName"}, hideIf: function(jsElement){ return jsElement.hasAttribute("source"); }},{
+             caption: "Add @dest=\"all\"", action: Xonomy.newAttribute, actionParameter: {name: "dest", value: "all"}, hideIf: function(jsElement){ return jsElement.hasAttribute("dest"); }},{
+
+              caption: "Delete this <copyField>", action: Xonomy.deleteElement},{
+              caption: "New <copyField> before this", action: Xonomy.newElementBefore, actionParameter: "<copyField/>" },{
+              caption: "New <copyField> after this", action: Xonomy.newElementAfter, actionParameter: "<copyField/>"}],
+
+               attributes: { "source":{ asker: Xonomy.askString, menu: [{caption: "Delete this @source", action: Xonomy.deleteAttribute}]},
+                          "dest":{ asker: Xonomy.askOpenPicklist, askerParameter: TypeNameList, menu: [{caption: "Delete this @dest", action: Xonomy.deleteAttribute}]},
+                          "indexed":{ asker: Xonomy.askPicklist, askerParameter: BoolOptionList, menu: [{caption: "Delete this @indexed", action: Xonomy.deleteAttribute}]}
+                          }
+                };
+
       var fieldSurrogateDefinition = { menu: [{caption: "Add @name=\"someFieldName\"", action: Xonomy.newAttribute, actionParameter: {name: "name", value: "someFieldName"}, hideIf: function(jsElement){ return jsElement.hasAttribute("name"); }},{
          caption: "Add @type=\"someType\"", action: Xonomy.newAttribute, actionParameter: {name: "type", value: "someType"}, hideIf: function(jsElement){ return jsElement.hasAttribute("type"); }},{
          caption: "Add @indexed=\"true\"",  action: Xonomy.newAttribute, actionParameter: {name: "indexed", value: "true"}, hideIf: function(jsElement){ return jsElement.hasAttribute("indexed"); }},{
@@ -56,6 +69,7 @@ function buildSolrSchemaDocumentSpec(){
                                        {caption: "Add @name=\"mySchemaName\"", action: Xonomy.newAttribute, actionParameter: {name: "name", value: "mySchemaName"}, hideIf: function(jsElement){ return jsElement.hasAttribute("name"); }},
                                        {caption: "Add @version=\"1.5\"", action: Xonomy.newAttribute, actionParameter: {name: "version", value: "1.5"}, hideIf: function(jsElement){ return jsElement.hasAttribute("version"); }},
                                        {caption: "Add a new <uniqueKey>", action: Xonomy.newElementChild, actionParameter: "<uniqueKey>...</uniqueKey>" , hideIf: function(jsElement){ return jsElement.hasChildElement("uniqueKey"); }},
+                                       {caption: "Add a new <copyField>", action: Xonomy.newElementChild, actionParameter: "<copyField/>" , hideIf: function(jsElement){ return jsElement.hasChildElement("copyField"); }},
                                        {caption: "Add a new <defaultSearchField>", action: Xonomy.newElementChild, actionParameter: "<defaultSearchField>...</defaultSearchField>" , hideIf: function(jsElement){ return jsElement.hasChildElement("defaultSearchField"); }}],
                                        attributes: {"name": { asker: Xonomy.askString, menu: [{caption: "Delete this @name", action: Xonomy.deleteAttribute}]},
                                                                 "version":{ asker: Xonomy.askString, menu: [{caption: "Delete this @version", action: Xonomy.deleteAttribute}]}}
@@ -63,9 +77,10 @@ function buildSolrSchemaDocumentSpec(){
                                },
                          "types": { menu: [{ caption: "Add a new <fieldType>", action: Xonomy.newElementChild, actionParameter: "<fieldType/>" }] },
                          "fieldType": fieldTypeSurrogateDefinition,
+                         "copyField": copyFieldSurrogateDefinition,
                          "defaultSearchField": { menu: [{ caption: "Delete this @defaultSearchField", action: Xonomy.deleteElement}]},
                          "fields": { menu: [{ caption: "Add a new <field>", action: Xonomy.newElementChild, actionParameter: "<field/>" }] },
-                         "field": fieldSurrogateDefinition}};
+                         "field": fieldSurrogateDefinition} };
 
 
         return docSpec;
