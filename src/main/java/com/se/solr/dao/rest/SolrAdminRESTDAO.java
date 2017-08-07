@@ -48,9 +48,8 @@ public class SolrAdminRESTDAO implements ISolrSchemaDAO {
 
         RestTemplate restTemplate = new RestTemplate();
 
-        String result = restTemplate.getForObject(request, String.class);
+        return restTemplate.getForObject(request, String.class);
 
-        return result;
     }
 
     /***

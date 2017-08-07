@@ -3,10 +3,6 @@ package com.se.solr.controller;
 import com.se.solr.dao.ISolrSchemaDAO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-import org.xml.sax.SAXException;
-import javax.xml.parsers.ParserConfigurationException;
-import javax.xml.transform.TransformerException;
-import java.io.IOException;
 
 /***
  *  * The following API template allows the retrieving and posting of Schema document
@@ -50,19 +46,19 @@ public class SchemaRESTServicesController {
     public String uploadNewSchema(@RequestParam(name = "xml")String xml,
                                   @RequestParam(name = "domain")String domain,
                                   @RequestParam(name = "schema")String schema,
-                                  @RequestParam(name = "table")String table) throws SAXException, ParserConfigurationException, IOException, TransformerException{
+                                  @RequestParam(name = "table")String table) {
 
 
        return solrSchemaDAO.uploadNewSchema(xml, domain, schema, table);
     }
 
-    @RequestMapping(method = RequestMethod.GET, path= "/reloadCore")
 
     /***
      * Reload Solr Core
      *
      * @implNote Needed after uploading new Schema inorder to take effect
      */
+    @RequestMapping(method = RequestMethod.GET, path= "/reloadCore")
     public String reloadCore(@RequestParam(name = "domain")String domain,
                              @RequestParam(name = "schema")String schema,
                              @RequestParam(name = "table")String table){

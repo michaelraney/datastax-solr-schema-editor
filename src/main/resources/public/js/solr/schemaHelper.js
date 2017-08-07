@@ -5,7 +5,9 @@ function buildSolrSchemaDocumentSpec(){
                                 "org.apache.solr.schema.TrieDateField",
                                 "org.apache.solr.schema.BoolField"];
 
-     var TypeNameList = ["StrField", "TrieDateField", "BoolField"];
+     var TypeNameList = ["StrField",
+                         "TrieDateField",
+                         "BoolField"];
 
 
      var BoolOptionList = ["true", "false" ];
@@ -62,8 +64,8 @@ function buildSolrSchemaDocumentSpec(){
                          "types": { menu: [{ caption: "Add a new <fieldType>", action: Xonomy.newElementChild, actionParameter: "<fieldType/>" }] },
                          "fieldType": fieldTypeSurrogateDefinition,
                          "defaultSearchField": { menu: [{ caption: "Delete this @defaultSearchField", action: Xonomy.deleteElement}]},
-                        "fields": { menu: [{ caption: "Add a new <field>", action: Xonomy.newElementChild, actionParameter: "<field/>" }] },
-                            "field": fieldSurrogateDefinition}};
+                         "fields": { menu: [{ caption: "Add a new <field>", action: Xonomy.newElementChild, actionParameter: "<field/>" }] },
+                         "field": fieldSurrogateDefinition}};
 
 
         return docSpec;

@@ -39,13 +39,7 @@ public class SolrRequestBuilder {
      * @return
      */
     public String buildSchemaPostRequest(){
-        StringBuilder sb = new StringBuilder(domain)
-                .append("/solr/resource/")
-                .append(schema)
-                .append('.')
-                .append(table)
-                .append("schema.xml");
-
+       
         return String.format("%s/solr/resource/%s.%s/schema.xml", domain, schema, table);
     }
 
