@@ -5,7 +5,7 @@ The purpose of this project is to enhance the user experience of changing Solr s
 ## Built on three simple technologies
 * Spring Boot - Create Standalone "Just Run" light-weight spring applications
 * Xonomy Java Script Library - Plugin for XML Document Mutations http://www.lexiconista.com/Xonomy/xonomy.pdf
-* Solr REST API - Access for schema access, publishing, and Solr core reloading.
+* Solr REST API - Access to schema, publishing, and Solr core reloading.
 
 
 ![screen shot](images/SolrEditorScreenShot.png)
