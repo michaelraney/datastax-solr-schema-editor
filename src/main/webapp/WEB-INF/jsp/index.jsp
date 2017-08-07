@@ -1,17 +1,25 @@
 <html>
 <head>
 
+
     <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
     <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
     <script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+
+
+<!-- Add jquery to local public folder if unable to access public url above -->
+<!--  <link rel="stylesheet" href="js/jquery/jquery.mobile-1.4.5.min.css" />
+      <script src="js/jquery/jquery-1.11.1.min.js"></script>
+      <script src="js/jquery/jquery.mobile-1.4.5.min.js"></script>
+-->
 
    <!-- <script type="text/javascript" src="https://code.jquery.com/jquery-1.10.2.min.js"></script>-->
     <script type="text/javascript" src="js/xonomy/xonomy.js"></script>
     <link type="text/css" rel="stylesheet" href="js/xonomy/xonomy.css"/>
 
-    <script type="text/javascript" src="js/xonomy/solr/schemaHelper.js"></script>
+    <script type="text/javascript" src="js/solr/schemaHelper.js"></script>
 
-     <script type="text/javascript">
+    <script type="text/javascript">
 
 
 

@@ -53,16 +53,16 @@ function buildSolrSchemaDocumentSpec(){
                      "schema": { menu: [
                                        {caption: "Add @name=\"mySchemaName\"", action: Xonomy.newAttribute, actionParameter: {name: "name", value: "mySchemaName"}, hideIf: function(jsElement){ return jsElement.hasAttribute("name"); }},
                                        {caption: "Add @version=\"1.5\"", action: Xonomy.newAttribute, actionParameter: {name: "version", value: "1.5"}, hideIf: function(jsElement){ return jsElement.hasAttribute("version"); }},
-                                       {caption: "Add an <uniqueKey> field", action: Xonomy.newElementChild, actionParameter: "<uniqueKey>...</uniqueKey>" , hideIf: function(jsElement){ return jsElement.hasChildElement("uniqueKey"); }},
-                                       {caption: "Add an <defaultSearchField> field", action: Xonomy.newElementChild, actionParameter: "<defaultSearchField>...</defaultSearchField>" , hideIf: function(jsElement){ return jsElement.hasChildElement("defaultSearchField"); }}],
+                                       {caption: "Add a new <uniqueKey>", action: Xonomy.newElementChild, actionParameter: "<uniqueKey>...</uniqueKey>" , hideIf: function(jsElement){ return jsElement.hasChildElement("uniqueKey"); }},
+                                       {caption: "Add a new <defaultSearchField>", action: Xonomy.newElementChild, actionParameter: "<defaultSearchField>...</defaultSearchField>" , hideIf: function(jsElement){ return jsElement.hasChildElement("defaultSearchField"); }}],
                                        attributes: {"name": { asker: Xonomy.askString, menu: [{caption: "Delete this @name", action: Xonomy.deleteAttribute}]},
                                                                 "version":{ asker: Xonomy.askString, menu: [{caption: "Delete this @version", action: Xonomy.deleteAttribute}]}}
 
                                },
-                         "types": { menu: [{ caption: "Append an <fieldType>", action: Xonomy.newElementChild, actionParameter: "<fieldType/>" }] },
+                         "types": { menu: [{ caption: "Add a new <fieldType>", action: Xonomy.newElementChild, actionParameter: "<fieldType/>" }] },
                          "fieldType": fieldTypeSurrogateDefinition,
                          "defaultSearchField": { menu: [{ caption: "Delete this @defaultSearchField", action: Xonomy.deleteElement}]},
-                        "fields": { menu: [{ caption: "Append an <field>", action: Xonomy.newElementChild, actionParameter: "<field/>" }] },
+                        "fields": { menu: [{ caption: "Add a new <field>", action: Xonomy.newElementChild, actionParameter: "<field/>" }] },
                             "field": fieldSurrogateDefinition}};
 
 

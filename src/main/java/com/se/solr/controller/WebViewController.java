@@ -1,10 +1,17 @@
-package com.se.solr;
+package com.se.solr.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+
+/***
+ *
+ *  Default Context for Application
+ *
+ * @Michael Raney
+ */
 @Controller
-public class WebController {
+public class WebViewController {
 
     @RequestMapping("/")
     public String index() {

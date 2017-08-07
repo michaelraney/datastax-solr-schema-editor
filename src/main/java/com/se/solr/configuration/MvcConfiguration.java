@@ -1,4 +1,5 @@
-package com.se.solr;
+package com.se.solr.configuration;
+
 
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
@@ -9,9 +10,16 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter
 import org.springframework.web.servlet.view.InternalResourceViewResolver;
 import org.springframework.web.servlet.view.JstlView;
 
+
+/***
+ *
+ *  Spring MVC Resource Config
+ *
+ * @Michael Raney
+ */
 @Configuration
 @EnableWebMvc
-@ComponentScan
+@ComponentScan(basePackages = "com.se.solr")
 public class MvcConfiguration extends WebMvcConfigurerAdapter
 {
 

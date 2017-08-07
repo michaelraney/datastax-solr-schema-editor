@@ -1,4 +1,4 @@
-package com.se.solr;
+package com.se.solr.dao.rest;
 
 /***
  *  Helper class to  Build Request for Solr Core
