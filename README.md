@@ -1,0 +1,1 @@
+# dse-solr-schema-editor
