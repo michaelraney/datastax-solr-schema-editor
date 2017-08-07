@@ -25,6 +25,7 @@ function buildSolrSchemaDocumentSpec(){
 
     var copyFieldSurrogateDefinition = { menu: [{caption: "Add @source=\"someFieldName\"", action: Xonomy.newAttribute, actionParameter: {name: "source", value: "someFieldName"}, hideIf: function(jsElement){ return jsElement.hasAttribute("source"); }},{
              caption: "Add @dest=\"all\"", action: Xonomy.newAttribute, actionParameter: {name: "dest", value: "all"}, hideIf: function(jsElement){ return jsElement.hasAttribute("dest"); }},{
+            caption: "Add @maxChars=\"300\"", action: Xonomy.newAttribute, actionParameter: {name: "maxChars", value: "300"}, hideIf: function(jsElement){ return jsElement.hasAttribute("maxChars"); }},{
 
               caption: "Delete this <copyField>", action: Xonomy.deleteElement},{
               caption: "New <copyField> before this", action: Xonomy.newElementBefore, actionParameter: "<copyField/>" },{
@@ -32,7 +33,7 @@ function buildSolrSchemaDocumentSpec(){
 
                attributes: { "source":{ asker: Xonomy.askString, menu: [{caption: "Delete this @source", action: Xonomy.deleteAttribute}]},
                           "dest":{ asker: Xonomy.askOpenPicklist, askerParameter: TypeNameList, menu: [{caption: "Delete this @dest", action: Xonomy.deleteAttribute}]},
-                          "indexed":{ asker: Xonomy.askPicklist, askerParameter: BoolOptionList, menu: [{caption: "Delete this @indexed", action: Xonomy.deleteAttribute}]}
+                          "maxChars":{ asker: Xonomy.askPicklist, askerParameter: BoolOptionList, menu: [{caption: "Delete this @maxChars", action: Xonomy.deleteAttribute}]}
                           }
                 };
 
