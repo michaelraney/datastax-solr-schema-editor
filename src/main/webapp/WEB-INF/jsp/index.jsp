@@ -23,6 +23,10 @@
 
 /* Initialize Button Events and map to action*/
      $(document).ready(function(){
+
+         <!--Xonomy.setMode("laic")-->
+         <!--Xonomy.setMode("nerd")--><!--Nerd is default display mode-->
+
          $("#refreshSchema").click(function(){
                 getSolrSchemaFromDSE($("#schemaLocation").val(), $("#schemaName").val(), $("#tableName").val())
          });
@@ -37,7 +41,7 @@
 
      });
 
-    /* Harvest Schema from Xonomy and then post xml to solr*/
+       /* Harvest Schema from Xonomy and then post xml to webservice*/
       function postToSolr(){
 
             var xml = Xonomy.harvest();
@@ -58,6 +62,7 @@
                     }
                 });
         }
+        /* reload core to update schema*/
         function reloadCore(){
 
             var domain = $("#schemaLocation").val();
@@ -76,6 +81,7 @@
                     }
                 });
         }
+        /* get current xml schema for table*/
         function getSolrSchemaFromDSE(domain, schemaName, tableName) {
 
 
