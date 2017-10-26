@@ -51,6 +51,16 @@ public class SolrAdminRESTDAO implements ISolrSchemaDAO {
         return restTemplate.getForObject(request, String.class);
 
     }
+    @Override
+    public String createCore(String domain, String schema, String table) {
+        String request = new SolrRequestBuilder(domain, schema, table).createCoreRequest();
+
+        RestTemplate restTemplate = new RestTemplate();
+
+        String result = restTemplate.getForObject(request, String.class);
+
+        return cleanXMLOfNewLineAndSpaces(result);
+    }
 
     /***
      * Remove formatting from XML

@@ -39,6 +39,11 @@
                  reloadCore();
           });
 
+         $("#createCore").click(function(){
+             createCore($("#schemaLocation").val(), $("#schemaName").val(), $("#tableName").val())
+         });
+
+
      });
 
        /* Harvest Schema from Xonomy and then post xml to webservice*/
@@ -82,7 +87,7 @@
                 });
         }
         /* get current xml schema for table*/
-        function getSolrSchemaFromDSE(domain, schemaName, tableName) {
+        function createCore(domain, schemaName, tableName) {
 
 
                var docSpec= buildSolrSchemaDocumentSpec();
@@ -92,7 +97,7 @@
 
                 $.ajax({
                     type: "GET" ,
-                    url: "/getSchemaFromAddress",
+                    url: "/createCore",
                     data : { "domain" : domain, "schema":schemaName, "table":tableName },
                     dataType: "text" ,
                     success: function(xml) {
@@ -103,6 +108,29 @@
 
 
             }
+        function getSolrSchemaFromDSE(domain, schemaName, tableName) {
+
+
+            var docSpec= buildSolrSchemaDocumentSpec();
+
+            var editor=document.getElementById("editor");
+
+
+            $.ajax({
+                type: "GET" ,
+                url: "/getSchemaFromAddress",
+                data : { "domain" : domain, "schema":schemaName, "table":tableName },
+                dataType: "text" ,
+                success: function(xml) {
+                    console.log(xml);
+                    Xonomy.render(xml.trim(), editor, docSpec);
+                }
+            });
+
+
+}
+
+
         </script>
 </head>
 <body>
@@ -132,7 +160,9 @@
                <hr>
                <table>
                 <tr>
-
+                    <td>
+                        <button id="createCore" class="ui-btn ui-mini">Create Core</button>
+                    </td>
                     <td>
                      <button id="refreshSchema"  class="ui-btn ui-mini">Refresh Schema</button>
                     </td>

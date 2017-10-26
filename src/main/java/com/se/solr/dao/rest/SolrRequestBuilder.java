@@ -22,6 +22,17 @@ public class SolrRequestBuilder {
     }
 
     /***
+     * Build URL to Generate Schema from Solr Core
+     *
+     * example http://localhost:8983/solr/admin/cores?action=CREATE&name=keyspace.table&generateResources=true&reindex=true
+     * @return
+     */
+    public String createCoreRequest(){
+
+        return String.format("%s/solr/admin/cores?action=CREATE&name=%s.%s&generateResources=true&reindex=true", domain, schema, table);
+    }
+
+    /***
      * Build URL to Retrieves Schema from Solr Core
      *
      * example http://localhost:8983/solr/schema.table/admin/file?file=schema.xml&contentType=text/xml;charset=utf-8

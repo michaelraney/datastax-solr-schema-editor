@@ -22,4 +22,9 @@ public class SolrAdminCQLDAO implements ISolrSchemaDAO {
     public String reloadCore(String domain, String schema, String table) {
         return null;
     }
+
+    @Override
+    public String createCore(String domain, String schema, String table) {
+        return null;
+    }
 }
